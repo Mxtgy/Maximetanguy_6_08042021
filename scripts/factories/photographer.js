@@ -1,3 +1,5 @@
+import { cardSetAttributes, cardAddValues } from '../utils/userCardCreate.js';
+
 function photographerFactory(data) {
   const {
     name, portrait, id, city, country, tagline, price,
@@ -14,20 +16,12 @@ function photographerFactory(data) {
     const location = document.createElement('span');
     const tag = document.createElement('span');
     const priceDay = document.createElement('span');
-    link.setAttribute('href', `photographer.html?${id}`);
-    img.setAttribute('src', picture);
-    location.setAttribute('class', 'location');
-    tag.setAttribute('class', 'tagline');
-    priceDay.setAttribute('class', 'price');
-    h2.textContent = name;
-    location.textContent = `${city}, ${country}`;
-    tag.textContent = tagline;
-    priceDay.textContent = `${price}€/jour`;
-    article.appendChild(link);
-    link.appendChild(figure);
-    figure.appendChild(img);
-    link.appendChild(h2);
-    article.append(location, tag, priceDay);
+    const elementsDOM = {
+      article, link, figure, img, h2, location, tag, priceDay,
+    };
+    cardSetAttributes(elementsDOM, id, picture);
+    cardAddValues(elementsDOM, name, city, country, tagline, price);
+
     return (article);
   }
   return { name, picture, getUserCardDOM };
