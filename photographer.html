@@ -1,20 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <title>Fisheye - photographe</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
+    <link rel="icon" type="image/png" href="assets/favicon.png"/>
   </head>
   <body>
     <header class="main_header">
       <a href="index.html"><figure><img src="assets/images/logo.png" class="logo" /></figure></a>
     </header>
     <main id="main">
-      <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+
+      <div class="footer-part">
+        <span id="js-total-likes">297 081 <img src="assets/icons/heart.svg" alt=""></span>
+        <span id="js-photograph-price">300€/jour</span>
       </div>
+
+      <section class="photograph-header">
+        <div class="photograph-info-text">
+          <h1 id="js-photograph-name">Ellie Rose Wilkens</h1>
+          <span id="js-photograph-location">London, uk</span>
+          <span id="js-photograph-tagline">Voir le beau dans le quotidien</span>
+        </div>
+        
+        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+
+        <figure>
+          <img id="js-photograph-picture" src="assets/photographers/MimiKeel.jpg" alt="">
+        </figure>
+
+      </section>
+      <!-- Ajouter à la mano le select -->
+      <!-- Ajouter dynamiquement la galerie avec un beforeend -->
+      <!-- Ajouter dynamiquement le html slider avec un beforeend -->
     </main>
     <div id="contact_modal">
 			<div class="modal">
@@ -31,6 +52,7 @@
 				</form>
 			</div>
 		</div>
+    <script type="module" src="./scripts/pages/photographer.js"></script>
     <script src="./scripts/utils/contactForm.js"></script>
   </body>
 </html>
