@@ -1,4 +1,5 @@
 import userProfileCreate from '../utils/userProfileCreate.js';
+import { ELEMDOMPHOTOGRAPHER } from '../utils/const.js';
 
 function profileFactory(data) {
   const {
@@ -7,15 +8,7 @@ function profileFactory(data) {
 
   const picture = `assets/photographers/${portrait}`;
 
-  const elementsDOM = {
-    targetName: document.querySelector('#js-photograph-name'),
-    targetPicture: document.querySelector('#js-photograph-picture'),
-    targetLocation: document.querySelector('#js-photograph-location'),
-    targetTagline: document.querySelector('#js-photograph-tagline'),
-    targetFooterprice: document.querySelector('#js-photograph-price'),
-  };
-
-  userProfileCreate(elementsDOM, name, picture, city, country, tagline, price);
+  userProfileCreate(ELEMDOMPHOTOGRAPHER, name, picture, city, country, tagline, price);
 }
 
 export default profileFactory;

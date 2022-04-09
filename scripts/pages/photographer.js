@@ -1,4 +1,6 @@
 import profileFactory from '../factories/profileCard.js';
+import pictureFactory from '../factories/pictureCard.js';
+import { GALERYSECTION } from '../utils/const.js';
 
 async function getPhotographers() {
   const response = await fetch('./data/photographers.json');
@@ -24,17 +26,13 @@ async function displayData(photographers) {
         if (IDPhotographer === elem.photographerId) {
           return elem;
         }
-        return elem;
       });
-      console.log(medias);
-      /*
-      mediaDATA.forEach((media) => {
-        if (IDPhotographer === media.photographerId) {
-          // Pousser une carte à chaque fois.
-          console.log(media);
-        }
+      medias.sort((b, a) => a.likes - b.likes);
+      medias.forEach((media) => {
+        const pictureModel = pictureFactory(media);
+        const pictureCardDOM = pictureModel.getPictureCardDOM(pictureModel.type);
+        GALERYSECTION.appendChild(pictureCardDOM);
       });
-      */
     }
   });
 }
@@ -46,5 +44,3 @@ async function init() {
 }
 
 init();
-
-// addeventlistener sur le système de like.
