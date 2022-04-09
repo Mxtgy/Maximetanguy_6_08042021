@@ -26,33 +26,89 @@
           <span id="js-photograph-tagline">Voir le beau dans le quotidien</span>
         </div>
         
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <button class="contact_button">Contactez-moi</button>
 
         <figure>
           <img id="js-photograph-picture" src="assets/photographers/MimiKeel.jpg" alt="">
         </figure>
 
       </section>
-      <!-- Ajouter à la mano le select -->
-      <!-- Ajouter dynamiquement la galerie avec un beforeend -->
-      <!-- Ajouter dynamiquement le html slider avec un beforeend -->
+
+
+      <section class="medias-sort">
+        <span class="sort-select">Trier par</span>
+        <div class="sorter">
+          <button class="sortbtn">
+            <span>Popularité</span> 
+            <img src="assets/icons/arrow.svg" alt="">
+          </button>
+          <ul class="sort-content">
+          <li>Popularité <img src="assets/icons/arrow.svg" alt=""></li>
+          <hr>
+          <li>Date</li>
+          <hr>
+          <li>Titre</li>
+          </ul>
+        </div>
+      </section>
+      <section class="galery"></section>
     </main>
-    <div id="contact_modal">
-			<div class="modal">
-				<header>
+
+    <div class="modal-slider-with-overlay">
+      <span class="close-modal"></span>
+      <div class="modal-content">
+        <!-- Ajouter dynamiquement les slides -->
+
+        <a class="prev"></a>
+        <a class="next"></a>
+
+        <div class="title-container">
+          <p>Titre</p>
+        </div>
+      </div>
+    
+    </div>
+
+    <div class="modal-with-overlay">
+      <div class="modal-overlay"></div>
+      <div class="modal-body">
+        <header>
+          <figure>
+            <img class="js-modal-close" src="assets/icons/close.svg"/>
+          </figure>
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <span id="js-photographer-name-modal">Mimi Keel</span>
+          <p class="js-form-confirmation">Le formulaire a bien été envoyé&nbsp;!</p>
         </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
-			</div>
-		</div>
+
+        <!-- FORMULAIRE -->
+        <form name="contact-photographer" action="photographer.html" method="post">
+          <div class="formData first" data-error="Ce champs ne doit pas être vide ou inférieur à 2 caractères." data-visible="false">
+            <label for="first">Prénom</label>
+            <input class="text-control" type="text" id="first" name="first" minlength="2"/>
+          </div>
+          <div class="formData last" data-error="Ce champs ne doit pas être vide ou inférieur à 2 caractères." data-visible="false">
+            <label for="last">Nom</label>
+            <input class="text-control" type="text" id="last" name="last" minlength="2"/>
+          </div>
+          <div class="formData email" data-error="Veuillez entrer une adresse email valide." data-visible="false">
+            <label for="email">E-mail</label>
+            <input class="text-control" type="email" id="email" name="email" required/>
+          </div>
+          <div class="formData message" data-error="Veuillez entrer votre message." data-visible="false">
+            <label for="message">Votre message</label>
+            <textarea id="message" class="text-control" name="message" rows="5" required></textarea>
+          </div>
+
+          <button class="modal-contact-btn" type="submit">Envoyer</button>
+        </form>
+        <!-- FORMULAIRE END -->
+
+      </div>
+    </div>
+
     <script type="module" src="./scripts/pages/photographer.js"></script>
-    <script src="./scripts/utils/contactForm.js"></script>
+    <script type="module" src="./scripts/utils/contactForm.js"></script>
+    <script type="module" src="./scripts/utils/sort-pictures.js"></script>
   </body>
 </html>
