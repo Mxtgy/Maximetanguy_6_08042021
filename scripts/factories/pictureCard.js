@@ -30,7 +30,7 @@ function pictureFactory(data) {
     const iconLikes = document.createElement('img');
 
     const elementsDOM = {
-      article, link, figure, media, footer, h2, divlikes, likesNumb, iconLikes,
+      article, link, figure, media, mediaType, footer, h2, divlikes, likesNumb, iconLikes,
     };
 
     cardSetAttributes(elementsDOM, id, title, likes, date, linkMedia);

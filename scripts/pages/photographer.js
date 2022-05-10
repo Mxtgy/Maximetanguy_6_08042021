@@ -1,5 +1,6 @@
 import profileFactory from '../factories/profileCard.js';
 import pictureFactory from '../factories/pictureCard.js';
+import { launchLightbox } from '../utils/lightbox.js';
 import { GALERYSECTION } from '../utils/const.js';
 
 async function getPhotographers() {
@@ -37,10 +38,21 @@ async function displayData(photographers) {
   });
 }
 
-async function init() {
+async function addListener() {
+  const listenPictures = document.querySelectorAll('article a');
+  for (let i = 0; i < listenPictures.length; i++) {
+    listenPictures[i].addEventListener('click', (e) => {
+      e.preventDefault();
+      launchLightbox(e);
+    });
+  }
+}
+
+async function initPhotographer() {
   // Récupère les datas des photographes
   const photographers = await getPhotographers();
   displayData(photographers);
+  addListener();
 }
 
-init();
+export default initPhotographer;
