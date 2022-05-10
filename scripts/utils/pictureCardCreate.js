@@ -4,6 +4,12 @@ function cardSetAttributes(elementsDOM, id, title, likes, date, linkMedia) {
   elementsDOM.article.setAttribute('data-likes', likes);
   elementsDOM.link.setAttribute('href', `photographer.html?idphotographer=${id}`);
   elementsDOM.media.setAttribute('src', linkMedia);
+  elementsDOM.media.setAttribute('class', 'grabMedia');
+  elementsDOM.media.setAttribute('alt', title);
+  if (elementsDOM.mediaType === 'video') {
+    elementsDOM.media.setAttribute('title', title);
+  }
+  elementsDOM.media.setAttribute('data-title', title);
   elementsDOM.divlikes.setAttribute('class', 'likes');
   elementsDOM.likesNumb.setAttribute('class', 'likesNumb');
   elementsDOM.iconLikes.setAttribute('src', 'assets/icons/heart-color.svg');

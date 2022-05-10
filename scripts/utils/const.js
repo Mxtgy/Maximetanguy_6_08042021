@@ -1,13 +1,22 @@
 // MODAL DOM ELEMENTS
 
 export const BODYELEM = document.querySelector('body');
-export const MODAL = document.querySelector('.modal-with-overlay');
-export const MODALOVERLAY = document.querySelector('.modal-overlay');
+export const MODALCONTACT = document.querySelector('.modal-contact-with-overlay');
+export const MODALCONTACTOVERLAY = document.querySelector('.modal-contact-overlay');
 export const BTNOPENFORM = document.querySelector('.contact_button');
-export const BTNCLOSEFORM = document.querySelector('.js-modal-close');
+export const BTNCLOSEFORM = document.querySelector('.js-modal-contact-close');
 export const SORTBTN = document.querySelector('.sortbtn');
 export const SORTLIST = document.querySelector('.sort-content');
 export const SORTOPTN = document.querySelectorAll('.sort-content li');
+
+export const SLIDER = {
+  slider_with_overlay: document.querySelector('.modal-slider-with-overlay'),
+  slider_content: document.querySelector('.modal-slider-content'),
+  slider_close: document.querySelector('.js-modal-slider-close'),
+  slider_prev: document.querySelector('.js-prev'),
+  slider_next: document.querySelector('.js-next'),
+  slider_caption: document.querySelector('.slider-title-container span'),
+};
 
 export const photographersSection = document.querySelector('.photographer_section');
 export const GALERYSECTION = document.querySelector('.galery');

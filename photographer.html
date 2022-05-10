@@ -55,26 +55,37 @@
     </main>
 
     <div class="modal-slider-with-overlay">
-      <span class="close-modal"></span>
-      <div class="modal-content">
+      
+      <div class="modal-slider-content">
+        <figure>
+          <img class="js-modal-slider-close" src="assets/icons/close-slider.svg"/>
+        </figure>
         <!-- Ajouter dynamiquement les slides -->
 
-        <a class="prev"></a>
-        <a class="next"></a>
+        <a class="prev js-prev">
+          <figure>
+            <img src="assets/icons/arrow-slider.svg"/>
+          </figure>
+        </a>
+        <a class="next js-next">
+          <figure>
+            <img src="assets/icons/arrow-slider.svg"/>
+          </figure>
+        </a>
 
-        <div class="title-container">
-          <p>Titre</p>
+        <div class="slider-title-container">
+          <span>Arc-en-ciel</span>
         </div>
       </div>
     
     </div>
 
-    <div class="modal-with-overlay">
-      <div class="modal-overlay"></div>
-      <div class="modal-body">
+    <div class="modal-contact-with-overlay">
+      <div class="modal-contact-overlay"></div>
+      <div class="modal-contact-body">
         <header>
           <figure>
-            <img class="js-modal-close" src="assets/icons/close.svg"/>
+            <img class="js-modal-contact-close" src="assets/icons/close-contact.svg"/>
           </figure>
           <h2>Contactez-moi</h2>
           <span id="js-photographer-name-modal">Mimi Keel</span>
@@ -107,8 +118,6 @@
       </div>
     </div>
 
-    <script type="module" src="./scripts/pages/photographer.js"></script>
-    <script type="module" src="./scripts/utils/contactForm.js"></script>
-    <script type="module" src="./scripts/utils/sort-pictures.js"></script>
+    <script type="module" src="./scripts/main-photographer.js"></script>
   </body>
 </html>

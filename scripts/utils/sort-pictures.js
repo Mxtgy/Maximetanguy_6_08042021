@@ -41,25 +41,29 @@ function sorting(elem) {
   });
 }
 
-SORTBTN.addEventListener('click', () => {
-  SORTLIST.classList.add('open');
-});
+function initSort() {
+  SORTBTN.addEventListener('click', () => {
+    SORTLIST.classList.add('open');
+  });
 
-BODYELEM.addEventListener('click', (e) => {
-  const buttonName = SORTBTN.querySelector('span');
-  for (let i = 0; i < SORTOPTN.length; i++) {
-    if (e.target === SORTOPTN[i]) {
-      buttonName.innerText = e.target.innerText;
+  BODYELEM.addEventListener('click', (e) => {
+    const buttonName = SORTBTN.querySelector('span');
+    for (let i = 0; i < SORTOPTN.length; i++) {
+      if (e.target === SORTOPTN[i]) {
+        buttonName.innerText = e.target.innerText;
 
-      //  Lancer la fonction de tri avec l'objet target en paramètre
-      sorting(e.target.innerText);
+        //  Lancer la fonction de tri avec l'objet target en paramètre
+        sorting(e.target.innerText);
+      }
     }
-  }
 
-  // On annule
-  if (e.target === SORTBTN) return;
+    // On annule
+    if (e.target === SORTBTN) return;
 
-  if (SORTLIST.classList.contains('open')) {
-    SORTLIST.classList.remove('open');
-  }
-});
+    if (SORTLIST.classList.contains('open')) {
+      SORTLIST.classList.remove('open');
+    }
+  });
+}
+
+export default initSort;
