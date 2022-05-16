@@ -1,6 +1,7 @@
 import profileFactory from '../factories/profileCard.js';
 import pictureFactory from '../factories/pictureCard.js';
 import { launchLightbox } from '../utils/lightbox.js';
+import { addLike } from '../utils/likes.js';
 import { GALERYSECTION } from '../utils/const.js';
 
 async function getPhotographers() {
@@ -40,10 +41,14 @@ async function displayData(photographers) {
 
 async function addListener() {
   const listenPictures = document.querySelectorAll('article a');
+  const listenLikes = document.querySelectorAll('.likes img');
   for (let i = 0; i < listenPictures.length; i++) {
     listenPictures[i].addEventListener('click', (e) => {
       e.preventDefault();
       launchLightbox(e);
+    });
+    listenLikes[i].addEventListener('click', (e) => {
+      addLike(e);
     });
   }
 }

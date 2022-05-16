@@ -12,6 +12,7 @@ function cardSetAttributes(elementsDOM, id, title, likes, date, linkMedia) {
   elementsDOM.media.setAttribute('data-title', title);
   elementsDOM.divlikes.setAttribute('class', 'likes');
   elementsDOM.likesNumb.setAttribute('class', 'likesNumb');
+  elementsDOM.likesNumb.setAttribute('data-id', id);
   elementsDOM.iconLikes.setAttribute('src', 'assets/icons/heart-color.svg');
 }
 
