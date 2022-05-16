@@ -1,5 +1,6 @@
 import { cardSetAttributes, cardAddValues } from '../utils/pictureCardCreate.js';
-import { IMAGE_MEDIA, VIDEO_MEDIA } from '../utils/const.js';
+import { likesF } from '../utils/likes.js';
+import { TARGETTOTALLIKES, IMAGE_MEDIA, VIDEO_MEDIA } from '../utils/const.js';
 
 function pictureFactory(data) {
   const {
@@ -21,13 +22,19 @@ function pictureFactory(data) {
     const link = document.createElement('a');
     const figure = document.createElement('figure');
     let media;
-    if (mediaType === IMAGE_MEDIA) media = document.createElement('img');
-    if (mediaType === VIDEO_MEDIA) media = document.createElement('video');
+    if (mediaType === IMAGE_MEDIA) {
+      media = document.createElement('img');
+    }
+    if (mediaType === VIDEO_MEDIA) {
+      media = document.createElement('video');
+    }
     const footer = document.createElement('footer');
     const h2 = document.createElement('h2');
     const divlikes = document.createElement('div');
     const likesNumb = document.createElement('span');
     const iconLikes = document.createElement('img');
+
+    likesF(likes);
 
     const elementsDOM = {
       article, link, figure, media, mediaType, footer, h2, divlikes, likesNumb, iconLikes,

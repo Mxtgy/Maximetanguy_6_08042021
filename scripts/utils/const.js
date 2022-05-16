@@ -8,6 +8,7 @@ export const BTNCLOSEFORM = document.querySelector('.js-modal-contact-close');
 export const SORTBTN = document.querySelector('.sortbtn');
 export const SORTLIST = document.querySelector('.sort-content');
 export const SORTOPTN = document.querySelectorAll('.sort-content li');
+export const TARGETTOTALLIKES = document.querySelector('#js-total-likes span');
 
 export const SLIDER = {
   slider_with_overlay: document.querySelector('.modal-slider-with-overlay'),
