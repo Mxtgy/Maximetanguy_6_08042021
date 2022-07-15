@@ -1,5 +1,5 @@
 import {
-  BODYELEM, SORTBTN, SORTLIST, SORTOPTN, GALERYSECTION, FILTERS,
+  BODY_ELEM, SORT_BTN, SORT_LIST, SORT_OPTN, GALERY_SECTION, FILTERS,
 } from './const.js';
 
 function popularitySort(array) {
@@ -37,19 +37,20 @@ function sorting(elem) {
   }
 
   arrayArticle.forEach((element) => {
-    GALERYSECTION.appendChild(element);
+    GALERY_SECTION.appendChild(element);
   });
 }
 
 function initSort() {
-  SORTBTN.addEventListener('click', () => {
-    SORTLIST.classList.add('open');
+  SORT_BTN.addEventListener('click', () => {
+    SORT_BTN.setAttribute('aria-expanded', 'true');
+    SORT_LIST.classList.add('open');
   });
 
-  BODYELEM.addEventListener('click', (e) => {
-    const buttonName = SORTBTN.querySelector('span');
-    for (let i = 0; i < SORTOPTN.length; i++) {
-      if (e.target === SORTOPTN[i]) {
+  BODY_ELEM.addEventListener('click', (e) => {
+    const buttonName = SORT_BTN.querySelector('span');
+    for (let i = 0; i < SORT_OPTN.length; i++) {
+      if (e.target === SORT_OPTN[i]) {
         buttonName.innerText = e.target.innerText;
 
         //  Lancer la fonction de tri avec l'objet target en paramètre
@@ -58,10 +59,21 @@ function initSort() {
     }
 
     // On annule
-    if (e.target === SORTBTN) return;
+    if (e.target === SORT_BTN) return;
 
-    if (SORTLIST.classList.contains('open')) {
-      SORTLIST.classList.remove('open');
+    if (SORT_LIST.classList.contains('open')) {
+      SORT_BTN.setAttribute('aria-expanded', 'false');
+      SORT_LIST.classList.remove('open');
+    }
+  });
+  SORT_OPTN[2].addEventListener('keydown', (e) => {
+    if (SORT_LIST.classList.contains('open') && !e.shiftKey && e.key === 'Tab') {
+      SORT_LIST.classList.remove('open');
+    }
+  });
+  SORT_OPTN[0].addEventListener('keydown', (e) => {
+    if (SORT_LIST.classList.contains('open') && e.shiftKey && e.key === 'Tab') {
+      SORT_LIST.classList.remove('open');
     }
   });
 }

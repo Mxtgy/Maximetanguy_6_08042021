@@ -3,6 +3,7 @@ function cardSetAttributes(elementsDOM, id, title, likes, date, linkMedia) {
   elementsDOM.article.setAttribute('data-title', title);
   elementsDOM.article.setAttribute('data-likes', likes);
   elementsDOM.link.setAttribute('href', `photographer.html?idphotographer=${id}`);
+  elementsDOM.link.setAttribute('aria-label', `${title} closeup view`);
   elementsDOM.media.setAttribute('src', linkMedia);
   elementsDOM.media.setAttribute('class', 'grabMedia');
   elementsDOM.media.setAttribute('alt', title);
@@ -13,7 +14,12 @@ function cardSetAttributes(elementsDOM, id, title, likes, date, linkMedia) {
   elementsDOM.divlikes.setAttribute('class', 'likes');
   elementsDOM.likesNumb.setAttribute('class', 'likesNumb');
   elementsDOM.likesNumb.setAttribute('data-id', id);
+  elementsDOM.likesNumb.setAttribute('tabindex', '0');
+  elementsDOM.likesNumb.setAttribute('aria-label', `${likes} likes`);
   elementsDOM.iconLikes.setAttribute('src', 'assets/icons/heart-color.svg');
+  elementsDOM.iconLikes.setAttribute('alt', 'liker');
+  elementsDOM.iconLikes.setAttribute('aria-label', 'liker');
+  elementsDOM.iconLikes.setAttribute('tabindex', '0');
 }
 
 function cardAddValues(elementsDOM, title, likes) {

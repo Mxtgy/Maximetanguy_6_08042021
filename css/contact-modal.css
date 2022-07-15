@@ -1,0 +1,151 @@
+/* contact modal */
+
+.contact_button, .modal-contact-btn {
+    font-family: "DM Sans", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    padding: 11px;
+    width: 170px;
+    height: 70px;
+    border: none;
+    background-color: #901C1C;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.contact_button:hover, .contact_button:focus,
+.modal-contact-btn:hover, .modal-contact-btn:focus {
+    background-color: #DB8876;
+    color: #000;
+}
+
+.modal-contact-with-overlay {
+    display: none;
+}
+.modal-contact-with-overlay.open {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+}
+.modal-contact-overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(196, 196, 196, 0.4);
+    cursor: pointer;
+}
+.modal-contact-body {
+    border-radius: 5px;
+    background-color: #DB8876;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 35px;
+    margin: 5% auto;
+    overflow: hidden;
+    position: relative;
+    padding-top: 15px;
+    cursor: auto;
+    pointer-events: visible;
+}
+
+.modal-contact-body header {
+    justify-content: space-between;
+    width: 100%;
+}
+
+.modal-contact-body header figure {
+    margin: 0;
+}
+
+.modal-contact-body header img {
+    cursor: pointer;
+    position: absolute;
+    right: 35px;
+    top: 35px;
+    width: 42px;
+}
+
+.modal-contact-body header h2, .modal-contact-body span {
+    font-size: 64px;
+    font-weight: 400;
+    text-align: left;
+    line-height: 83px;
+    margin: 0 auto;
+}
+
+.modal-contact-body header .js-form-confirmation {
+    display: none;
+}
+
+.modal-contact-body form {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 19px;
+}
+
+.modal-contact-body form label {
+    color: #312E2E;
+    font-size: 36px;
+    margin-bottom: 5px;
+}
+
+.modal-contact-body form div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: self-start;
+    margin-bottom: 26px;
+}
+
+.modal-contact-body form input, .modal-contact-body form textarea {
+    width: 100%;
+    max-width: -webkit-fill-available;
+    height: 68px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    margin: 0;
+    font-size : 36px;
+    padding-left: 8px;
+}
+
+.modal-contact-body form textarea {
+    height: 170px;
+}
+
+.modal-contact-body .modal-contact-btn {
+    font-size: 18px;
+}
+
+.formData[data-error]::after {
+    content: attr(data-error);
+    font-size: 1em;
+    color: #FFF;
+    display: none;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    text-align: left;
+    line-height: 1.1;
+    opacity: 0;
+    transition: 0.3s;
+}
+.formData[data-visible="true"]::after {
+    opacity: 1;
+    display: block;
+}
+.formData[data-visible="true"] .text-control {
+    border: 2px solid #e54858;
+}

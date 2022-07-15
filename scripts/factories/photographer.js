@@ -19,7 +19,7 @@ function photographerFactory(data) {
     const elementsDOM = {
       article, link, figure, img, h2, location, tag, priceDay,
     };
-    cardSetAttributes(elementsDOM, id, picture);
+    cardSetAttributes(elementsDOM, id, picture, name, city, country, tagline, price);
     cardAddValues(elementsDOM, name, city, country, tagline, price);
 
     return (article);

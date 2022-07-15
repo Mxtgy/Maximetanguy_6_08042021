@@ -1,10 +1,29 @@
 import { SLIDER } from './const.js';
 import modalSliderFactory from '../factories/slider.js';
+import checkFocus from './accessibility-focus.js';
 
 let slideIndex = 1;
+let elemCliked;
 
 function toggleSlider() {
   SLIDER.slider_with_overlay.classList.toggle('open');
+  if (SLIDER.slider_with_overlay.getAttribute('aria-hidden') === 'true') {
+    SLIDER.slider_with_overlay.setAttribute('aria-hidden', 'false');
+  } else {
+    SLIDER.slider_with_overlay.setAttribute('aria-hidden', 'true');
+  }
+  /*
+  Ajout des contrôles flèches slider
+  */
+  if (SLIDER.slider_with_overlay.classList.contains('open')) {
+    SLIDER.slider_with_overlay.addEventListener('keyup', (e) => {
+      if (e.key === 'ArrowRight') {
+        changeSlide(1);
+      } else if (e.key === 'ArrowLeft') {
+        changeSlide(-1);
+      }
+    });
+  }
 }
 
 function closeSlider() {
@@ -14,11 +33,13 @@ function closeSlider() {
     slidesRemoval[j].remove();
     SLIDER.slider_caption.innerHTML = '';
   }
+  elemCliked.focus();
 }
 
 function launchLightbox(e) {
   toggleSlider();
-  const elemCliked = e.target;
+  checkFocus(SLIDER.slider_with_overlay);
+  elemCliked = e.target;
   const mediaElemClicked = elemCliked.querySelector('.grabMedia');
 
   const allMedia = document.querySelectorAll('.grabMedia');
@@ -69,11 +90,39 @@ function initLightbox() {
     closeSlider();
   });
 
+  /*
+  Addeventlistener enter close modal
+  */
+  SLIDER.slider_close.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      closeSlider();
+    }
+  });
+  SLIDER.slider_with_overlay.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeSlider();
+    }
+  });
+
   SLIDER.slider_prev.addEventListener('click', () => {
     changeSlide(-1);
   });
   SLIDER.slider_next.addEventListener('click', () => {
     changeSlide(1);
+  });
+
+  /*
+  Addeventlistener enter key change slide
+  */
+  SLIDER.slider_prev.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      changeSlide(-1);
+    }
+  });
+  SLIDER.slider_next.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      changeSlide(1);
+    }
   });
 }
 

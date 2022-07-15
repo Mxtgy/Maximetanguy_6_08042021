@@ -1,6 +1,6 @@
 import { cardSetAttributes, cardAddValues } from '../utils/pictureCardCreate.js';
 import { likesF } from '../utils/likes.js';
-import { TARGETTOTALLIKES, IMAGE_MEDIA, VIDEO_MEDIA } from '../utils/const.js';
+import { IMAGE_MEDIA, VIDEO_MEDIA } from '../utils/const.js';
 
 function pictureFactory(data) {
   const {

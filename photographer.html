@@ -9,21 +9,20 @@
     <link rel="icon" type="image/png" href="assets/favicon.png"/>
   </head>
   <body>
-    <header class="main_header">
-      <a href="index.html"><figure><img src="assets/images/logo.png" class="logo" /></figure></a>
+    <header class="main_header" role="navigation">
+      <a href="index.html" alt="Fisheye Home page">
+        <figure>
+          <img src="assets/images/logo.png" alt="logo" class="logo" />
+        </figure>
+      </a>
     </header>
-    <main id="main">
-
-      <div class="footer-part">
-        <span id="js-total-likes"><span>0</span> <img src="assets/icons/heart.svg" alt=""></span>
-        <span id="js-photograph-price">300€/jour</span>
-      </div>
+    <main id="main" role="main">
 
       <section class="photograph-header">
         <div class="photograph-info-text">
-          <h1 id="js-photograph-name">Ellie Rose Wilkens</h1>
-          <span id="js-photograph-location">London, uk</span>
-          <span id="js-photograph-tagline">Voir le beau dans le quotidien</span>
+          <h1 tabindex="0" id="js-photograph-name">Ellie Rose Wilkens</h1>
+          <span tabindex="0" id="js-photograph-location">London, uk</span>
+          <span tabindex="0" id="js-photograph-tagline">Voir le beau dans le quotidien</span>
         </div>
         
         <button class="contact_button">Contactez-moi</button>
@@ -38,77 +37,81 @@
       <section class="medias-sort">
         <span class="sort-select">Trier par</span>
         <div class="sorter">
-          <button class="sortbtn">
-            <span>Popularité</span> 
+          <button aria-label="Filtre initial : Popularité. Utilisé le menu déroulant pour trier." aria-haspopup="listbox" aria-controls="sosort" aria-expanded="false" class="sortbtn">
+            <span>Popularité</span>
             <img src="assets/icons/arrow.svg" alt="">
           </button>
-          <ul class="sort-content">
-          <li>Popularité <img src="assets/icons/arrow.svg" alt=""></li>
-          <hr>
-          <li>Date</li>
-          <hr>
-          <li>Titre</li>
+          <ul id="sosort" tabindex="-1" role="listbox" aria-activedescendant="pop" aria-label="Trier par" class="sort-content">
+            <li id="pop" role="option" aria-label="Popularité" aria-selected="true" tabindex="0">Popularité <img src="assets/icons/arrow.svg" alt=""></li>
+            <hr>
+            <li role="option" aria-label="Date" tabindex="0">Date</li>
+            <hr>
+            <li role="option" aria-label="Titre" tabindex="0">Titre</li>
           </ul>
         </div>
       </section>
       <section class="galery"></section>
+      <div class="footer-part">
+        <span tabindex="0" id="js-total-likes"><span>0</span> <img src="assets/icons/heart.svg" alt=""></span>
+        <span tabindex="0" id="js-photograph-price">300€/jour</span>
+      </div>
     </main>
 
-    <div class="modal-slider-with-overlay">
+    <div aria-hidden="true" role="dialog" tabindex="0" aria-label="image closeup view" class="modal-slider-with-overlay">
       
       <div class="modal-slider-content">
         <figure>
-          <img class="js-modal-slider-close" src="assets/icons/close-slider.svg"/>
+          <img role="button" tabindex="0" aria-label="Fermer la fenêtre de dialogue" class="js-modal-slider-close" src="assets/icons/close-slider.svg"/>
         </figure>
         <!-- Ajouter dynamiquement les slides -->
 
-        <a class="prev js-prev">
+        <a class="prev js-prev" aria-label="Image précédente" tabindex="0">
           <figure>
             <img src="assets/icons/arrow-slider.svg"/>
           </figure>
         </a>
-        <a class="next js-next">
+        <a class="next js-next" aria-label="Image suivante" tabindex="0">
           <figure>
             <img src="assets/icons/arrow-slider.svg"/>
           </figure>
         </a>
 
-        <div class="slider-title-container">
+        <div class="slider-title-container" tabindex="0">
           <span>Arc-en-ciel</span>
         </div>
       </div>
     
     </div>
 
-    <div class="modal-contact-with-overlay">
+    <div aria-hidden="true" role="dialog" tabindex="0" aria-describedby="modal-contact" class="modal-contact-with-overlay">
       <div class="modal-contact-overlay"></div>
       <div class="modal-contact-body">
         <header>
-          <figure>
-            <img class="js-modal-contact-close" src="assets/icons/close-contact.svg"/>
-          </figure>
-          <h2>Contactez-moi</h2>
-          <span id="js-photographer-name-modal">Mimi Keel</span>
+          <h2 id="modal-contact">Contactez-moi</h2>
+          <span tabindex="0" id="js-photographer-name-modal">Mimi Keel</span>
           <p class="js-form-confirmation">Le formulaire a bien été envoyé&nbsp;!</p>
+          <figure>
+            <img role="button" tabindex="0" aria-label="Fermer la modal de contact" class="js-modal-contact-close" src="assets/icons/close-contact.svg"/>
+          </figure>
         </header>
 
         <!-- FORMULAIRE -->
         <form name="contact-photographer" action="photographer.html" method="post">
           <div class="formData first" data-error="Ce champs ne doit pas être vide ou inférieur à 2 caractères." data-visible="false">
-            <label for="first">Prénom</label>
-            <input class="text-control" type="text" id="first" name="first" minlength="2"/>
+            <label id="prenom-access" for="first">Prénom</label>
+            <input class="text-control" aria-labelledby="prenom-access" type="text" id="first" name="first" minlength="2" required/>
           </div>
           <div class="formData last" data-error="Ce champs ne doit pas être vide ou inférieur à 2 caractères." data-visible="false">
-            <label for="last">Nom</label>
-            <input class="text-control" type="text" id="last" name="last" minlength="2"/>
+            <label id="nom-access" for="last">Nom</label>
+            <input class="text-control" aria-labelledby="nom-access" type="text" id="last" name="last" minlength="2" required/>
           </div>
           <div class="formData email" data-error="Veuillez entrer une adresse email valide." data-visible="false">
-            <label for="email">E-mail</label>
-            <input class="text-control" type="email" id="email" name="email" required/>
+            <label id="email-access" for="email">E-mail</label>
+            <input class="text-control" aria-labelledby="email-access" type="email" id="email" name="email" required/>
           </div>
           <div class="formData message" data-error="Veuillez entrer votre message." data-visible="false">
-            <label for="message">Votre message</label>
-            <textarea id="message" class="text-control" name="message" rows="5" required></textarea>
+            <label id="message-access" for="message">Votre message</label>
+            <textarea id="message" aria-labelledby="message-access" class="text-control" name="message" rows="5" required></textarea>
           </div>
 
           <button class="modal-contact-btn" type="submit">Envoyer</button>
