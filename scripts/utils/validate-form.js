@@ -1,6 +1,7 @@
 import {
-  FORM, CONFIRMATION_FORM, FIRSTNAME, LASTNAME, EMAIL, MESSAGE,
+  MODAL_CONTACT, FORM, CONFIRMATION_FORM, FIRSTNAME, LASTNAME, EMAIL, MESSAGE,
 } from './const.js';
+import checkFocus from './accessibility-focus.js';
 import { checkName, checkEmail, checkMessage } from './form-functions.js';
 
 /*
@@ -21,6 +22,7 @@ function checkOnSubmit() {
     console.log(LASTNAME.input.value);
     console.log(EMAIL.input.value);
     console.log(MESSAGE.input.value);
+
     // FORM.submit();
   }
 }

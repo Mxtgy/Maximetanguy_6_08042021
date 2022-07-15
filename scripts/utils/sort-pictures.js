@@ -69,11 +69,18 @@ function initSort() {
   SORT_OPTN[2].addEventListener('keydown', (e) => {
     if (SORT_LIST.classList.contains('open') && !e.shiftKey && e.key === 'Tab') {
       SORT_LIST.classList.remove('open');
+    } else if (SORT_LIST.classList.contains('open') && e.key === 'Enter') {
+      SORT_LIST.classList.remove('open');
+      console.log(e.target.innerText);
+      sorting(e.target.innerText);
     }
   });
   SORT_OPTN[0].addEventListener('keydown', (e) => {
     if (SORT_LIST.classList.contains('open') && e.shiftKey && e.key === 'Tab') {
       SORT_LIST.classList.remove('open');
+    } else if (SORT_LIST.classList.contains('open') && e.key === 'Enter') {
+      SORT_LIST.classList.remove('open');
+      sorting(e.target.innerText);
     }
   });
 }

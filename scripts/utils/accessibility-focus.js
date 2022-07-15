@@ -5,9 +5,13 @@ function checkFocus(modal) {
   const focusableC = modal.querySelectorAll(focusableElems);
   // get last element to be focused inside modal
   const lastFocusableE = focusableC[focusableC.length - 1];
+  console.log(focusableC);
+  console.log(firstFocusableE);
+  console.log(lastFocusableE);
 
   document.addEventListener('keydown', (e) => {
-    const isTabPressed = e.key === 'Tab' || e.keyCode === 9;
+    const isTabPressed = e.key === 'Tab';
+    // const isTabPressed = e.key === 'Tab' || e.keyCode === 9;
 
     if (!isTabPressed) {
       return;
@@ -21,14 +25,12 @@ function checkFocus(modal) {
         e.preventDefault();
       }
       // if tab key is pressed
-    } else {
-      // if focused has reached to last focusable element then focus first focusable element
-      if (document.activeElement === lastFocusableE) {
-        // add focus for the first focusable element
-        firstFocusableE.focus();
-        e.preventDefault();
-      }
+    } else if (document.activeElement === lastFocusableE) {
+      // add focus for the first focusable element
+      firstFocusableE.focus();
+      e.preventDefault();
     }
+    // if focused has reached to last focusable element then focus first focusable element
   });
 
   firstFocusableE.focus();
