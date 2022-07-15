@@ -76,6 +76,7 @@ function showSlides(n) {
   }
 
   slides[slideIndex - 1].classList.add('active');
+  slides[slideIndex - 1].focus();
   SLIDER.slider_caption.innerHTML = slides[slideIndex - 1].querySelector('.mediaSlider').getAttribute('data-title');
 }
 

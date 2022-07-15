@@ -1,6 +1,6 @@
 import { LIKES_ACCESS, TARGET_TOTAL_LIKES } from './const.js';
 
-function likesF(likes) {
+function likesInit(likes) {
   const totalLikes = parseInt(TARGET_TOTAL_LIKES.innerHTML, 10);
   TARGET_TOTAL_LIKES.innerHTML = totalLikes + likes;
   LIKES_ACCESS.setAttribute('aria-label', `${TARGET_TOTAL_LIKES.innerHTML} likes`);
@@ -27,4 +27,4 @@ function addLike(e) {
   localStorage.setItem(currentPhotoID, '1');
 }
 
-export { likesF, addLike };
+export { likesInit, addLike };

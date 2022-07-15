@@ -1,5 +1,5 @@
 import { cardSetAttributes, cardAddValues } from '../utils/pictureCardCreate.js';
-import { likesF } from '../utils/likes.js';
+import { likesInit } from '../utils/likes.js';
 import { IMAGE_MEDIA, VIDEO_MEDIA } from '../utils/const.js';
 
 function pictureFactory(data) {
@@ -34,7 +34,7 @@ function pictureFactory(data) {
     const likesNumb = document.createElement('span');
     const iconLikes = document.createElement('img');
 
-    likesF(likes);
+    likesInit(likes);
 
     const elementsDOM = {
       article, link, figure, media, mediaType, footer, h2, divlikes, likesNumb, iconLikes,

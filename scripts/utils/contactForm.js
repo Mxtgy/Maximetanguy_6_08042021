@@ -1,10 +1,11 @@
 import {
   MODAL_CONTACT_OVERLAY, BTN_OPEN_FORM, BTN_CLOSE_FORM, FORM, FIRSTNAME, LASTNAME, EMAIL, MESSAGE,
-  MODAL_CONTACT,
+  MODAL_CONTACT, CONFIRMATION_FORM,
 } from './const.js';
 import modalContactToggle from './toggle-modal.js';
 import checkInputFocusOut from './check-input-focusout.js';
 import checkOnSubmit from './validate-form.js';
+import checkFocus from './accessibility-focus.js';
 
 function initContact() {
   const arrayFocusOut = [FIRSTNAME.input, LASTNAME.input, EMAIL.input, MESSAGE.input];
@@ -19,6 +20,18 @@ function initContact() {
   FORM.addEventListener('submit', (event) => {
     event.preventDefault();
     checkOnSubmit();
+
+    CONFIRMATION_FORM.focus();
+    for (let a = 0; a < arrayFocusOut.length; a++) {
+      arrayFocusOut[a].setAttribute('disabled', '');
+    }
+    document.querySelector('form button').setAttribute('disabled', '');
+
+    CONFIRMATION_FORM.addEventListener('keydown', (e) => {
+      if (e.key === 'Tab') {
+        checkFocus(MODAL_CONTACT);
+      }
+    });
   });
 
   MODAL_CONTACT_OVERLAY.addEventListener('click', modalContactToggle);
