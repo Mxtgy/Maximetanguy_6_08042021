@@ -1,5 +1,5 @@
 import userProfileCreate from '../utils/userProfileCreate.js';
-import { ELEMDOMPHOTOGRAPHER } from '../utils/const.js';
+import { ELEM_DOM_PHOTOGRAPHER } from '../utils/const.js';
 
 function profileFactory(data) {
   const {
@@ -8,7 +8,7 @@ function profileFactory(data) {
 
   const picture = `assets/photographers/${portrait}`;
 
-  userProfileCreate(ELEMDOMPHOTOGRAPHER, name, picture, city, country, tagline, price);
+  userProfileCreate(ELEM_DOM_PHOTOGRAPHER, name, picture, city, country, tagline, price);
 }
 
 export default profileFactory;

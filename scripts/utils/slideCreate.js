@@ -3,6 +3,8 @@ function slideSetAttributes(div, media, type, mediaSrc, slideNumber, altMedia) {
   media.setAttribute('class', 'mediaSlider');
   media.setAttribute('data-slide-number', slideNumber);
   media.setAttribute('data-title', altMedia);
+  media.setAttribute('tabindex', '0');
+  media.setAttribute('aria-label', altMedia);
   media.setAttribute('src', mediaSrc);
   if (type === 'video') {
     media.setAttribute('controls', true);

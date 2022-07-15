@@ -1,14 +1,15 @@
 // MODAL DOM ELEMENTS
 
-export const BODYELEM = document.querySelector('body');
-export const MODALCONTACT = document.querySelector('.modal-contact-with-overlay');
-export const MODALCONTACTOVERLAY = document.querySelector('.modal-contact-overlay');
-export const BTNOPENFORM = document.querySelector('.contact_button');
-export const BTNCLOSEFORM = document.querySelector('.js-modal-contact-close');
-export const SORTBTN = document.querySelector('.sortbtn');
-export const SORTLIST = document.querySelector('.sort-content');
-export const SORTOPTN = document.querySelectorAll('.sort-content li');
-export const TARGETTOTALLIKES = document.querySelector('#js-total-likes span');
+export const BODY_ELEM = document.querySelector('body');
+export const MODAL_CONTACT = document.querySelector('.modal-contact-with-overlay');
+export const MODAL_CONTACT_OVERLAY = document.querySelector('.modal-contact-overlay');
+export const BTN_OPEN_FORM = document.querySelector('.contact_button');
+export const BTN_CLOSE_FORM = document.querySelector('.js-modal-contact-close');
+export const SORT_BTN = document.querySelector('.sortbtn');
+export const SORT_LIST = document.querySelector('.sort-content');
+export const SORT_OPTN = document.querySelectorAll('.sort-content li');
+export const LIKES_ACCESS = document.querySelector('#js-total-likes');
+export const TARGET_TOTAL_LIKES = document.querySelector('#js-total-likes span');
 
 export const SLIDER = {
   slider_with_overlay: document.querySelector('.modal-slider-with-overlay'),
@@ -19,10 +20,10 @@ export const SLIDER = {
   slider_caption: document.querySelector('.slider-title-container span'),
 };
 
-export const photographersSection = document.querySelector('.photographer_section');
-export const GALERYSECTION = document.querySelector('.galery');
+export const PHOTOGRAPHERS_SECTION = document.querySelector('.photographer_section');
+export const GALERY_SECTION = document.querySelector('.galery');
 
-export const ELEMDOMPHOTOGRAPHER = {
+export const ELEM_DOM_PHOTOGRAPHER = {
   targetName: document.querySelector('#js-photograph-name'),
   targetPicture: document.querySelector('#js-photograph-picture'),
   targetLocation: document.querySelector('#js-photograph-location'),
@@ -32,7 +33,7 @@ export const ELEMDOMPHOTOGRAPHER = {
 };
 
 export const FORM = document.querySelector('form');
-export const CONFIRMATIONFORM = document.querySelector('.js-form-confirmation');
+export const CONFIRMATION_FORM = document.querySelector('.js-form-confirmation');
 
 // REGEX
 export const REGEX = {

@@ -2,7 +2,7 @@ import profileFactory from '../factories/profileCard.js';
 import pictureFactory from '../factories/pictureCard.js';
 import { launchLightbox } from '../utils/lightbox.js';
 import { addLike } from '../utils/likes.js';
-import { GALERYSECTION } from '../utils/const.js';
+import { GALERY_SECTION } from '../utils/const.js';
 
 async function getPhotographers() {
   const response = await fetch('./data/photographers.json');
@@ -33,7 +33,7 @@ async function displayData(photographers) {
       medias.forEach((media) => {
         const pictureModel = pictureFactory(media);
         const pictureCardDOM = pictureModel.getPictureCardDOM(pictureModel.type);
-        GALERYSECTION.appendChild(pictureCardDOM);
+        GALERY_SECTION.appendChild(pictureCardDOM);
       });
     }
   });
@@ -42,6 +42,7 @@ async function displayData(photographers) {
 async function addListener() {
   const listenPictures = document.querySelectorAll('article a');
   const listenLikes = document.querySelectorAll('.likes img');
+
   for (let i = 0; i < listenPictures.length; i++) {
     listenPictures[i].addEventListener('click', (e) => {
       e.preventDefault();
@@ -49,6 +50,11 @@ async function addListener() {
     });
     listenLikes[i].addEventListener('click', (e) => {
       addLike(e);
+    });
+    listenLikes[i].addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        addLike(e);
+      }
     });
   }
 }

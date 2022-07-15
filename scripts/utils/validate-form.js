@@ -1,5 +1,5 @@
 import {
-  FORM, CONFIRMATIONFORM, FIRSTNAME, LASTNAME, EMAIL, MESSAGE,
+  FORM, CONFIRMATION_FORM, FIRSTNAME, LASTNAME, EMAIL, MESSAGE,
 } from './const.js';
 import { checkName, checkEmail, checkMessage } from './form-functions.js';
 
@@ -16,7 +16,7 @@ function checkOnSubmit() {
 
   if (checkname && checklast && checkmail && checkmessage) {
     FORM.style.display = 'none';
-    CONFIRMATIONFORM.style.display = 'block';
+    CONFIRMATION_FORM.style.display = 'block';
     console.log(FIRSTNAME.input.value);
     console.log(LASTNAME.input.value);
     console.log(EMAIL.input.value);

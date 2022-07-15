@@ -1,0 +1,17 @@
+/* Widget price */
+
+.footer-part {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    min-width: 300px;
+    bottom: -3px;
+    right: 20px;
+    background-color: #DB8876;
+    border-radius: 5px;
+    color: #000;
+    font-weight: 500;
+    font-size: 24px;
+    padding: 10px 10px;
+}

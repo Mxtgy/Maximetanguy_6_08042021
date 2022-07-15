@@ -5,6 +5,9 @@ function userProfileCreate(elementsDOM, name, picture, city, country, tagline, p
   const elemFooterprice = elementsDOM.targetFooterprice;
   const elemModalname = elementsDOM.targetNameModal;
   elementsDOM.targetPicture.setAttribute('src', picture);
+  elementsDOM.targetPicture.setAttribute('alt', name);
+  elementsDOM.targetPicture.setAttribute('tabindex', '0');
+  elemFooterprice.setAttribute('aria-label', `${price}€ par jour`);
   elemName.textContent = name;
   elemLocation.textContent = `${city}, ${country}`;
   elemTagline.textContent = tagline;
