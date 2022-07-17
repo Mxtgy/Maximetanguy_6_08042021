@@ -5,13 +5,9 @@ function checkFocus(modal) {
   const focusableC = modal.querySelectorAll(focusableElems);
   // get last element to be focused inside modal
   const lastFocusableE = focusableC[focusableC.length - 1];
-  console.log(focusableC);
-  console.log(firstFocusableE);
-  console.log(lastFocusableE);
 
   document.addEventListener('keydown', (e) => {
     const isTabPressed = e.key === 'Tab';
-    // const isTabPressed = e.key === 'Tab' || e.keyCode === 9;
 
     if (!isTabPressed) {
       return;

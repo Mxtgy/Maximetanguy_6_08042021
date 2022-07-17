@@ -76,11 +76,14 @@ function showSlides(n) {
   }
 
   slides[slideIndex - 1].classList.add('active');
-  slides[slideIndex - 1].focus();
-  SLIDER.slider_caption.innerHTML = slides[slideIndex - 1].querySelector('.mediaSlider').getAttribute('data-title');
+  const mediaSlide = slides[slideIndex - 1].querySelector('.mediaSlider');
+  mediaSlide.focus();
+  SLIDER.slider_caption.innerHTML = mediaSlide.getAttribute('data-title');
 }
 
-// Next/previous controls
+/*
+Next/previous controls
+*/
 function changeSlide(n) {
   slideIndex += n;
   showSlides(slideIndex);

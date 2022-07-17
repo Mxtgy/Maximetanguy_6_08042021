@@ -46,12 +46,19 @@ function initSort() {
     SORT_BTN.setAttribute('aria-expanded', 'true');
     SORT_LIST.classList.add('open');
   });
+  SORT_BTN.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      SORT_BTN.click();
+      SORT_LIST.focus();
+    }
+  });
 
   BODY_ELEM.addEventListener('click', (e) => {
     const buttonName = SORT_BTN.querySelector('span');
     for (let i = 0; i < SORT_OPTN.length; i++) {
       if (e.target === SORT_OPTN[i]) {
         buttonName.innerText = e.target.innerText;
+        SORT_BTN.setAttribute('aria-label', `Filtre actuel : ${e.target.innerText}. Utilisé le menu déroulant pour trier.`);
 
         //  Lancer la fonction de tri avec l'objet target en paramètre
         sorting(e.target.innerText);
@@ -66,23 +73,21 @@ function initSort() {
       SORT_LIST.classList.remove('open');
     }
   });
-  SORT_OPTN[2].addEventListener('keydown', (e) => {
-    if (SORT_LIST.classList.contains('open') && !e.shiftKey && e.key === 'Tab') {
-      SORT_LIST.classList.remove('open');
-    } else if (SORT_LIST.classList.contains('open') && e.key === 'Enter') {
-      SORT_LIST.classList.remove('open');
-      console.log(e.target.innerText);
-      sorting(e.target.innerText);
-    }
-  });
-  SORT_OPTN[0].addEventListener('keydown', (e) => {
-    if (SORT_LIST.classList.contains('open') && e.shiftKey && e.key === 'Tab') {
-      SORT_LIST.classList.remove('open');
-    } else if (SORT_LIST.classList.contains('open') && e.key === 'Enter') {
-      SORT_LIST.classList.remove('open');
-      sorting(e.target.innerText);
-    }
-  });
+
+  for (let l = 0; l < SORT_OPTN.length; l++) {
+    SORT_OPTN[l].addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        SORT_OPTN[l].click();
+        SORT_BTN.querySelector('span').focus();
+      }
+      if (l === 0 && SORT_LIST.classList.contains('open') && e.shiftKey && e.key === 'Tab') {
+        SORT_LIST.classList.remove('open');
+      }
+      if (l === SORT_OPTN.length - 1 && SORT_LIST.classList.contains('open') && !e.shiftKey && e.key === 'Tab') {
+        SORT_LIST.classList.remove('open');
+      }
+    });
+  }
 }
 
 export default initSort;

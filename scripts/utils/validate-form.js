@@ -1,7 +1,6 @@
 import {
-  MODAL_CONTACT, FORM, CONFIRMATION_FORM, FIRSTNAME, LASTNAME, EMAIL, MESSAGE,
+  FORM, CONFIRMATION_FORM, FIRSTNAME, LASTNAME, EMAIL, MESSAGE,
 } from './const.js';
-import checkFocus from './accessibility-focus.js';
 import { checkName, checkEmail, checkMessage } from './form-functions.js';
 
 /*
@@ -16,12 +15,13 @@ function checkOnSubmit() {
   const checkmessage = checkMessage(MESSAGE.parent, MESSAGE.input.value);
 
   if (checkname && checklast && checkmail && checkmessage) {
-    FORM.style.display = 'none';
     CONFIRMATION_FORM.style.display = 'block';
-    console.log(FIRSTNAME.input.value);
-    console.log(LASTNAME.input.value);
-    console.log(EMAIL.input.value);
-    console.log(MESSAGE.input.value);
+    CONFIRMATION_FORM.setAttribute('role', 'alert');
+    console.log(`Prénom : ${FIRSTNAME.input.value}`);
+    console.log(`Nom : ${LASTNAME.input.value}`);
+    console.log(`E-mail : ${EMAIL.input.value}`);
+    console.log(`Message : ${MESSAGE.input.value}`);
+    FORM.remove();
 
     // FORM.submit();
   }
