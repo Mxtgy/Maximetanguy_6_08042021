@@ -6,6 +6,9 @@ By doing that the CSS will show the error message.
 */
 function displayError(elem) {
   const parentElem = elem;
+  const errorElem = parentElem.querySelector('span');
+  errorElem.style.display = 'block';
+  errorElem.setAttribute('role', 'alert');
   parentElem.dataset.visible = true;
 }
 
@@ -14,6 +17,9 @@ This function hide/remove the error on the parent element.
 */
 function removeError(elem) {
   const parentElem = elem;
+  const errorElem = parentElem.querySelector('span');
+  errorElem.style.display = 'none';
+  errorElem.removeAttribute('role');
   parentElem.dataset.visible = false;
 }
 

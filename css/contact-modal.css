@@ -76,7 +76,7 @@
     width: 42px;
 }
 
-.modal-contact-body header h2, .modal-contact-body span {
+.modal-contact-body header h2, .modal-contact-body #js-photographer-name-modal {
     font-size: 64px;
     font-weight: 400;
     text-align: left;
@@ -130,22 +130,18 @@
     font-size: 18px;
 }
 
-.formData[data-error]::after {
-    content: attr(data-error);
+.formData span {
+    display: none;
     font-size: 1em;
     color: #FFF;
-    display: none;
     margin-top: 7px;
     margin-bottom: 7px;
     text-align: left;
     line-height: 1.1;
-    opacity: 0;
+    opacity: 1;
     transition: 0.3s;
 }
-.formData[data-visible="true"]::after {
-    opacity: 1;
-    display: block;
-}
+
 .formData[data-visible="true"] .text-control {
     border: 2px solid #e54858;
 }

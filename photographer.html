@@ -10,9 +10,9 @@
   </head>
   <body>
     <header class="main_header" role="navigation">
-      <a href="index.html" alt="Fisheye Home page">
+      <a tabindex="0" href="index.html" title="Fisheye Homepage">
         <figure>
-          <img src="assets/images/logo.png" alt="logo" class="logo" />
+          <img src="assets/images/logo.png" alt="Fisheye Homepage" class="logo" />
         </figure>
       </a>
     </header>
@@ -37,7 +37,7 @@
       <section class="medias-sort">
         <span class="sort-select">Trier par</span>
         <div class="sorter">
-          <button aria-label="Filtre initial : Popularité. Utilisé le menu déroulant pour trier." aria-haspopup="listbox" aria-controls="sosort" aria-expanded="false" class="sortbtn">
+          <button aria-label="Filtre actuel : Popularité. Utilisé le menu déroulant pour trier." aria-haspopup="listbox" aria-controls="sosort" aria-expanded="false" class="sortbtn">
             <span>Popularité</span>
             <img src="assets/icons/arrow.svg" alt="">
           </button>
@@ -61,18 +61,18 @@
       
       <div class="modal-slider-content">
         <figure>
-          <img role="button" tabindex="0" aria-label="Fermer la fenêtre de dialogue" class="js-modal-slider-close" src="assets/icons/close-slider.svg"/>
+          <img role="button" tabindex="0" alt="Croix de fermeture" aria-label="Fermer la fenêtre de dialogue" class="js-modal-slider-close" src="assets/icons/close-slider.svg"/>
         </figure>
         <!-- Ajouter dynamiquement les slides -->
 
         <a class="prev js-prev" aria-label="Image précédente" tabindex="0">
           <figure>
-            <img src="assets/icons/arrow-slider.svg"/>
+            <img src="assets/icons/arrow-slider.svg" alt=""/>
           </figure>
         </a>
         <a class="next js-next" aria-label="Image suivante" tabindex="0">
           <figure>
-            <img src="assets/icons/arrow-slider.svg"/>
+            <img src="assets/icons/arrow-slider.svg" alt=""/>
           </figure>
         </a>
 
@@ -89,29 +89,33 @@
         <header>
           <h2 id="modal-contact">Contactez-moi</h2>
           <span tabindex="0" id="js-photographer-name-modal">Mimi Keel</span>
-          <p tabindex="0" class="js-form-confirmation">Le formulaire a bien été envoyé&nbsp;!</p>
+          <span tabindex="0" class="js-form-confirmation">Le formulaire a bien été envoyé&nbsp;!</span>
           <figure>
-            <img role="button" tabindex="0" aria-label="Fermer la modal de contact" class="js-modal-contact-close" src="assets/icons/close-contact.svg"/>
+            <img role="button" tabindex="0" alt="Croix de fermeture" aria-label="Fermer la modal de contact" class="js-modal-contact-close" src="assets/icons/close-contact.svg"/>
           </figure>
         </header>
 
         <!-- FORMULAIRE -->
         <form name="contact-photographer" action="photographer.html" method="post">
-          <div class="formData first" data-error="Ce champs ne doit pas être vide ou inférieur à 2 caractères." data-visible="false">
+          <div class="formData first" data-visible="false">
             <label id="prenom-access" for="first">Prénom</label>
             <input class="text-control" aria-labelledby="prenom-access" type="text" id="first" name="first" minlength="2" required/>
+            <span>Ce champs ne doit pas être vide ou inférieur à 2 caractères.</span>
           </div>
-          <div class="formData last" data-error="Ce champs ne doit pas être vide ou inférieur à 2 caractères." data-visible="false">
+          <div class="formData last" data-visible="false">
             <label id="nom-access" for="last">Nom</label>
             <input class="text-control" aria-labelledby="nom-access" type="text" id="last" name="last" minlength="2" required/>
+            <span>Ce champs ne doit pas être vide ou inférieur à 2 caractères.</span>
           </div>
-          <div class="formData email" data-error="Veuillez entrer une adresse email valide." data-visible="false">
+          <div class="formData email" data-visible="false">
             <label id="email-access" for="email">E-mail</label>
             <input class="text-control" aria-labelledby="email-access" type="email" id="email" name="email" required/>
+            <span>Veuillez entrer une adresse email valide.</span>
           </div>
-          <div class="formData message" data-error="Veuillez entrer votre message." data-visible="false">
+          <div class="formData message" data-visible="false">
             <label id="message-access" for="message">Votre message</label>
             <textarea id="message" aria-labelledby="message-access" class="text-control" name="message" rows="5" required></textarea>
+            <span>Veuillez entrer votre message.</span>
           </div>
 
           <button class="modal-contact-btn" type="submit">Envoyer</button>
