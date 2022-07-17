@@ -1,6 +1,8 @@
 /* Media Sort */
 
 .medias-sort {
+    margin: 0 100px;
+    display: flex;
     margin-top: 40px;
     align-items: center;
     font-size: 18px;
@@ -61,25 +63,35 @@
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
+    position: relative;
   }
+
+  .medias-sort .sort-content li::before {
+    content: '';
+    background-color: #FFF;
+    width: 90%;
+    height: 1px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
+  .medias-sort .sort-content #pop::before {
+    display: none;
+  }
+
 
   .medias-sort .sort-content img {
     transform: rotate(180deg);
-  }
-
-  .medias-sort .sort-content hr {
-    width: 90%;
-    margin: 0 auto;
   }
   
   .medias-sort .sort-content li:hover {
       background-color: #901C1C;
       border-radius: 5px;
   }
-  
-  /*.medias-sort .sorter:hover .sort-content {
-    display: block;
-  }*/
+
   .medias-sort .sort-content.open {
     display: block;
   }
