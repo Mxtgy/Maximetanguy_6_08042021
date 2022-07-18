@@ -7,16 +7,19 @@ import checkInputFocusOut from './check-input-focusout.js';
 import checkOnSubmit from './validate-form.js';
 import checkFocus from './accessibility-focus.js';
 
+/*
+We prepare the contact modal.
+*/
 function initContact() {
   const arrayFocusOut = [FIRSTNAME.input, LASTNAME.input, EMAIL.input, MESSAGE.input];
+
   for (let i = 0; i < arrayFocusOut.length; i++) {
     arrayFocusOut[i].addEventListener('focusout', checkInputFocusOut);
   }
 
   /*
-  Add Event Listener on the submit of the form
+  Add Event Listener on the submit of the form.
   */
-
   FORM.addEventListener('submit', (event) => {
     event.preventDefault();
     checkOnSubmit();
@@ -27,7 +30,7 @@ function initContact() {
   BTN_OPEN_FORM.addEventListener('click', modalContactToggle);
 
   /*
-  Event Listener to open the form with enter key
+  Event Listener to open the form with enter key.
   */
   BTN_OPEN_FORM.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') {
@@ -38,7 +41,7 @@ function initContact() {
   BTN_CLOSE_FORM.addEventListener('click', modalContactToggle);
 
   /*
-  Event Listener to close the form with enter key
+  Event Listener to close the form with enter or escape key.
   */
   BTN_CLOSE_FORM.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') {

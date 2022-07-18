@@ -1,3 +1,6 @@
+/*
+We set all the attributes.
+*/
 function slideSetAttributes(div, media, type, mediaSrc, slideNumber, altMedia) {
   div.setAttribute('class', 'mySlides');
   media.setAttribute('class', 'mediaSlider');
@@ -6,15 +9,20 @@ function slideSetAttributes(div, media, type, mediaSrc, slideNumber, altMedia) {
   media.setAttribute('tabindex', '0');
   media.setAttribute('aria-label', altMedia);
   media.setAttribute('src', mediaSrc);
+
   if (type === 'video') {
     media.setAttribute('controls', true);
     media.setAttribute('title', altMedia);
   }
+
   if (type === 'image') {
     media.setAttribute('alt', altMedia);
   }
 }
 
+/*
+We prepare the final element.
+*/
 function slideAddValues(div, media) {
   div.appendChild(media);
 }
