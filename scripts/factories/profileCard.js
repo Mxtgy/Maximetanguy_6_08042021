@@ -1,6 +1,9 @@
 import userProfileCreate from '../utils/userProfileCreate.js';
 import { ELEM_DOM_PHOTOGRAPHER } from '../utils/const.js';
 
+/*
+Profile card factory.
+*/
 function profileFactory(data) {
   const {
     name, portrait, city, country, tagline, price,

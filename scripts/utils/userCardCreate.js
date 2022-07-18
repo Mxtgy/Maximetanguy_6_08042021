@@ -1,3 +1,6 @@
+/*
+We set all the attributes.
+*/
 function cardSetAttributes(elementsDOM, id, picture, name, city, country, tagline, price) {
   elementsDOM.h2.setAttribute('tabindex', '0');
   elementsDOM.link.setAttribute('href', `photographer.html?idphotographer=${id}`);
@@ -15,15 +18,20 @@ function cardSetAttributes(elementsDOM, id, picture, name, city, country, taglin
   elementsDOM.priceDay.setAttribute('aria-label', `${price}€ par jour`);
 }
 
+/*
+We add all the value / texts, and prepare the final element.
+*/
 function cardAddValues(elementsDOM, name, city, country, tagline, price) {
   const namePhotographer = elementsDOM.h2;
   const locationPhotographer = elementsDOM.location;
   const tagPhotographer = elementsDOM.tag;
   const pricePhotographer = elementsDOM.priceDay;
+
   namePhotographer.textContent = name;
   locationPhotographer.textContent = `${city}, ${country}`;
   tagPhotographer.textContent = tagline;
   pricePhotographer.textContent = `${price}€/jour`;
+
   elementsDOM.article.appendChild(elementsDOM.link);
   elementsDOM.link.appendChild(elementsDOM.figure);
   elementsDOM.figure.appendChild(elementsDOM.img);

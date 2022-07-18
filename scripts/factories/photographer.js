@@ -1,5 +1,8 @@
 import { cardSetAttributes, cardAddValues } from '../utils/userCardCreate.js';
 
+/*
+Homepage photographer element factory.
+*/
 function photographerFactory(data) {
   const {
     name, portrait, id, city, country, tagline, price,
@@ -7,6 +10,9 @@ function photographerFactory(data) {
 
   const picture = `assets/photographers/${portrait}`;
 
+  /*
+  Function that create the element.
+  */
   function getUserCardDOM() {
     const article = document.createElement('article');
     const link = document.createElement('a');

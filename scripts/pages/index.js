@@ -1,8 +1,10 @@
 import photographerFactory from '../factories/photographer.js';
 import { PHOTOGRAPHERS_SECTION } from '../utils/const.js';
 
+/*
+This function return the photographers data.
+*/
 async function getPhotographers() {
-  // Penser à remplacer par les données récupérées dans le json
   const response = await fetch('./data/photographers.json');
 
   const photographers = await response.json();
@@ -10,6 +12,9 @@ async function getPhotographers() {
   return { photographers: photographers.photographers };
 }
 
+/*
+This function will launch the factory and add the element in the DOM.
+*/
 async function displayData(photographers) {
   photographers.forEach((photographer) => {
     const photographerModel = photographerFactory(photographer);
@@ -18,8 +23,11 @@ async function displayData(photographers) {
   });
 }
 
+/*
+Initialisation.
+*/
 async function init() {
-  // Récupère les datas des photographes
+  // We start getting the data
   const { photographers } = await getPhotographers();
   displayData(photographers);
 }

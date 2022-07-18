@@ -3,6 +3,9 @@ import initContact from './utils/contactForm.js';
 import initSort from './utils/sort-pictures.js';
 import { initLightbox } from './utils/lightbox.js';
 
+/*
+We launch.
+*/
 initPhotographer();
 initContact();
 initSort();

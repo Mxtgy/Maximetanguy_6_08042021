@@ -2,6 +2,9 @@ import { cardSetAttributes, cardAddValues } from '../utils/pictureCardCreate.js'
 import { likesInit } from '../utils/likes.js';
 import { IMAGE_MEDIA, VIDEO_MEDIA } from '../utils/const.js';
 
+/*
+Picture factory.
+*/
 function pictureFactory(data) {
   const {
     id, photographerId, title, likes, date,
@@ -17,17 +20,23 @@ function pictureFactory(data) {
 
   const linkMedia = `assets/pictures/${photographerId}/${mediaVar}`;
 
+  /*
+  We built the element.
+  */
   function getPictureCardDOM(mediaType) {
     const article = document.createElement('article');
     const link = document.createElement('a');
     const figure = document.createElement('figure');
     let media;
+
     if (mediaType === IMAGE_MEDIA) {
       media = document.createElement('img');
     }
+
     if (mediaType === VIDEO_MEDIA) {
       media = document.createElement('video');
     }
+
     const footer = document.createElement('footer');
     const h2 = document.createElement('h2');
     const divlikes = document.createElement('div');

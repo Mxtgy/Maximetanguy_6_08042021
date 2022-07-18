@@ -1,8 +1,12 @@
 import checkFocus from './accessibility-focus.js';
 import { MODAL_CONTACT, BTN_OPEN_FORM } from './const.js';
 
+/*
+Display or hide the modal.
+*/
 export default function modalContactToggle(e) {
   MODAL_CONTACT.classList.toggle('open');
+
   if (MODAL_CONTACT.getAttribute('aria-hidden') === 'true') {
     MODAL_CONTACT.setAttribute('aria-hidden', 'false');
   } else {

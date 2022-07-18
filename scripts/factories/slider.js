@@ -1,6 +1,9 @@
 import { IMAGE_MEDIA, VIDEO_MEDIA } from '../utils/const.js';
 import { slideSetAttributes, slideAddValues } from '../utils/slideCreate.js';
 
+/*
+Slider factory.
+*/
 function modalSliderFactory(type, media, number) {
   const mediaSrc = media.src;
   let mediaType = 'image';
@@ -12,6 +15,9 @@ function modalSliderFactory(type, media, number) {
   const slideNumber = number;
   const altMedia = media.getAttribute('data-title');
 
+  /*
+  We build the slide.
+  */
   function getSlideDOM(typeMedia, numb, alt) {
     const div = document.createElement('div');
     let mediaElem;

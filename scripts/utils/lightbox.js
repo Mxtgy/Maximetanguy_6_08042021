@@ -5,15 +5,20 @@ import checkFocus from './accessibility-focus.js';
 let slideIndex = 1;
 let elemCliked;
 
+/*
+We display or we hide the slider.
+*/
 function toggleSlider() {
   SLIDER.slider_with_overlay.classList.toggle('open');
+
   if (SLIDER.slider_with_overlay.getAttribute('aria-hidden') === 'true') {
     SLIDER.slider_with_overlay.setAttribute('aria-hidden', 'false');
   } else {
     SLIDER.slider_with_overlay.setAttribute('aria-hidden', 'true');
   }
+
   /*
-  Ajout des contrôles flèches slider
+  Ajout des contrôles flèches slider.
   */
   if (SLIDER.slider_with_overlay.classList.contains('open')) {
     SLIDER.slider_with_overlay.addEventListener('keyup', (e) => {
@@ -26,29 +31,40 @@ function toggleSlider() {
   }
 }
 
+/*
+We close the slider.
+*/
 function closeSlider() {
   toggleSlider();
   const slidesRemoval = SLIDER.slider_content.querySelectorAll('.mySlides');
+
   for (let j = 0; j < slidesRemoval.length; j++) {
     slidesRemoval[j].remove();
     SLIDER.slider_caption.innerHTML = '';
   }
+
   elemCliked.focus();
 }
 
+/*
+We open and create the slider with the media slide factory.
+*/
 function launchLightbox(e) {
   toggleSlider();
   checkFocus(SLIDER.slider_with_overlay);
+
   elemCliked = e.target;
   const mediaElemClicked = elemCliked.querySelector('.grabMedia');
-
   const allMedia = document.querySelectorAll('.grabMedia');
+
   for (let i = 0; i < allMedia.length; i++) {
     const media = allMedia[i];
     const type = media.tagName;
     const newModal = modalSliderFactory(type, media, i);
     const slideDom = newModal.getSlideDOM(newModal.mediaType, newModal.slideNumber, newModal.altMedia);
+
     SLIDER.slider_prev.insertAdjacentElement('beforebegin', slideDom);
+
     if (mediaElemClicked.src === slideDom.querySelector('.mediaSlider').src) {
       slideDom.classList.add('active');
       SLIDER.slider_caption.innerHTML = mediaElemClicked.getAttribute('data-title');
@@ -60,6 +76,9 @@ function launchLightbox(e) {
   slideIndex = parseInt(numberFirstSlide, 10) + 1;
 }
 
+/*
+Function called to switch between active and inactive slides.
+*/
 function showSlides(n) {
   const slides = document.getElementsByClassName('mySlides');
 
@@ -82,7 +101,7 @@ function showSlides(n) {
 }
 
 /*
-Next/previous controls
+Next/previous controls function.
 */
 function changeSlide(n) {
   slideIndex += n;
@@ -90,39 +109,51 @@ function changeSlide(n) {
 }
 
 function initLightbox() {
+  /*
+  Addeventlistener click close modal.
+  */
   SLIDER.slider_close.addEventListener('click', () => {
     closeSlider();
   });
 
   /*
-  Addeventlistener enter close modal
+  Addeventlistener enter close modal.
   */
   SLIDER.slider_close.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') {
       closeSlider();
     }
   });
+
+  /*
+  Addeventlistener escape close modal.
+  */
   SLIDER.slider_with_overlay.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       closeSlider();
     }
   });
 
+  /*
+  Addeventlistener change slides.
+  */
   SLIDER.slider_prev.addEventListener('click', () => {
     changeSlide(-1);
   });
+
   SLIDER.slider_next.addEventListener('click', () => {
     changeSlide(1);
   });
 
   /*
-  Addeventlistener enter key change slide
+  Addeventlistener enter key change slide.
   */
   SLIDER.slider_prev.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') {
       changeSlide(-1);
     }
   });
+
   SLIDER.slider_next.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') {
       changeSlide(1);
